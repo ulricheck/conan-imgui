@@ -15,13 +15,19 @@ set(EXTRA_FONTS_DIR ${SOURCE_DIR}/misc/fonts)
 set(SOURCE_FILES ${SOURCE_DIR}/imgui_draw.cpp
                  ${SOURCE_DIR}/imgui.cpp
                  ${SOURCE_DIR}/imgui_demo.cpp
-                 ${SOURCE_DIR}/imgui_widgets.cpp)
+                 ${SOURCE_DIR}/imgui_widgets.cpp
+                 ${SOURCE_DIR}/examples/imgui_impl_glfw.cpp
+                 ${SOURCE_DIR}/examples/imgui_impl_opengl2.cpp
+                 )
 set(HEADER_FILES ${SOURCE_DIR}/imconfig.h
                  ${SOURCE_DIR}/imgui_internal.h
                  ${SOURCE_DIR}/imgui.h
                  ${SOURCE_DIR}/imstb_rectpack.h
                  ${SOURCE_DIR}/imstb_textedit.h
-                 ${SOURCE_DIR}/imstb_truetype.h)
+                 ${SOURCE_DIR}/imstb_truetype.h
+                 ${SOURCE_DIR}/examples/imgui_impl_glfw.h
+                 ${SOURCE_DIR}/examples/imgui_impl_opengl2.h
+                 )
 set(EXTRA_FONTS_FILES ${EXTRA_FONTS_DIR}/Karla-Regular.ttf
                       ${EXTRA_FONTS_DIR}/ProggyTiny.ttf
                       ${EXTRA_FONTS_DIR}/ProggyClean.ttf

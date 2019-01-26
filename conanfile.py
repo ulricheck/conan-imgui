@@ -21,6 +21,10 @@ class IMGUIConan(ConanFile):
     default_options = {"shared": False, "fPIC": True}
     _source_subfolder = "source_subfolder"
 
+    requires = (
+        'glfw/[>=3.2.1]@camposs/stable',
+        )
+
     def config_options(self):
         if self.settings.os == 'Windows':
             del self.options.fPIC
