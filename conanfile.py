@@ -23,6 +23,7 @@ class IMGUIConan(ConanFile):
 
     requires = (
         'glfw/[>=3.2.1]@camposs/stable',
+        'glad/[>=0.1.27]@camposs/stable',
         )
 
     def config_options(self):

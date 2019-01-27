@@ -17,7 +17,7 @@ set(SOURCE_FILES ${SOURCE_DIR}/imgui_draw.cpp
                  ${SOURCE_DIR}/imgui_demo.cpp
                  ${SOURCE_DIR}/imgui_widgets.cpp
                  ${SOURCE_DIR}/examples/imgui_impl_glfw.cpp
-                 ${SOURCE_DIR}/examples/imgui_impl_opengl2.cpp
+                 ${SOURCE_DIR}/examples/imgui_impl_opengl3.cpp
                  )
 set(HEADER_FILES ${SOURCE_DIR}/imconfig.h
                  ${SOURCE_DIR}/imgui_internal.h
@@ -26,7 +26,7 @@ set(HEADER_FILES ${SOURCE_DIR}/imconfig.h
                  ${SOURCE_DIR}/imstb_textedit.h
                  ${SOURCE_DIR}/imstb_truetype.h
                  ${SOURCE_DIR}/examples/imgui_impl_glfw.h
-                 ${SOURCE_DIR}/examples/imgui_impl_opengl2.h
+                 ${SOURCE_DIR}/examples/imgui_impl_opengl3.h
                  )
 set(EXTRA_FONTS_FILES ${EXTRA_FONTS_DIR}/Karla-Regular.ttf
                       ${EXTRA_FONTS_DIR}/ProggyTiny.ttf
@@ -39,6 +39,8 @@ set(BINARY_TO_COMPRESSED_BIN binary_to_compressed_c)
 add_executable(${BINARY_TO_COMPRESSED_BIN} ${EXTRA_FONTS_DIR}/binary_to_compressed_c.cpp)
 
 add_library(${PROJECT_NAME} ${SOURCE_FILES})
+# maybe configurable dependencies glew+glad
+target_compile_definitions(${PROJECT_NAME} PUBLIC -DIMGUI_IMPL_OPENGL_LOADER_GLAD)
 target_include_directories(${PROJECT_NAME} PRIVATE ${SOURCE_DIR})
 target_link_libraries(${PROJECT_NAME} PUBLIC ${CONAN_LIBS})
 
