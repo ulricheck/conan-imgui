@@ -17,8 +17,8 @@ class IMGUIConan(ConanFile):
     exports_sources = ["CMakeLists.txt", "imgui_demo.h", "imgui_demo.cpp"]
     generators = "cmake"
     settings = "os", "arch", "compiler", "build_type"
-    options = {"shared": [True, False], "fPIC": [True, False]}
-    default_options = {"shared": False, "fPIC": True}
+    options = {"shared": [True, False], "fPIC": [True, False], "with_sources": [True, False]}
+    default_options = {"shared": False, "fPIC": True, "with_sources": True}
     _source_subfolder = "source_subfolder"
 
     requires = (
@@ -37,6 +37,7 @@ class IMGUIConan(ConanFile):
 
     def _configure_cmake(self):
         cmake = CMake(self)
+        cmake.definitions["WITH_SOURCES"] = self.options.with_sources
         cmake.configure()
         return cmake
 
